@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>tmux vi key binding | IT Learning</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Add vi key binding to .tmux.confFile: ~/.tmux.conf1234567891011unbind C-bset -g prefix C-jset-window-option -g mode-keys vibind h select-pane -Lbind j select-pane -Dbind k select-pane -Ubind l select-">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tmux vi key binding">
+<meta property="og:url" content="http://yoursite.com/2017/07/10/tmux-vi-key-binding/index.html">
+<meta property="og:site_name" content="IT Learning">
+<meta property="og:description" content="Add vi key binding to .tmux.confFile: ~/.tmux.conf1234567891011unbind C-bset -g prefix C-jset-window-option -g mode-keys vibind h select-pane -Lbind j select-pane -Dbind k select-pane -Ubind l select-">
+<meta property="og:updated_time" content="2017-07-17T15:05:28.507Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="tmux vi key binding">
+<meta name="twitter:description" content="Add vi key binding to .tmux.confFile: ~/.tmux.conf1234567891011unbind C-bset -g prefix C-jset-window-option -g mode-keys vibind h select-pane -Lbind j select-pane -Dbind k select-pane -Ubind l select-">
+  
+    <link rel="alternate" href="/atom.xml" title="IT Learning" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">IT Learning</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-tmux-vi-key-binding" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/10/tmux-vi-key-binding/" class="article-date">
+  <time datetime="2017-07-10T02:48:13.000Z" itemprop="datePublished">2017-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      tmux vi key binding
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Add-vi-key-binding-to-tmux-conf"><a href="#Add-vi-key-binding-to-tmux-conf" class="headerlink" title="Add vi key binding to .tmux.conf"></a>Add vi key binding to .tmux.conf</h2><p>File: ~/.tmux.conf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">unbind C-b</div><div class="line">set -g prefix C-j</div><div class="line">set-window-option -g mode-keys vi</div><div class="line">bind h select-pane -L</div><div class="line">bind j select-pane -D</div><div class="line">bind k select-pane -U</div><div class="line">bind l select-pane -R</div><div class="line">bind-key -t vi-copy &apos;v&apos; begin-selection</div><div class="line">bind-key -t vi-copy &apos;y&apos; copy-selection</div><div class="line">set-window-option -g automatic-rename off</div><div class="line">set-option -g allow-rename off</div></pre></td></tr></table></figure></p>
+<p>reload the conf file while in tmux:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;c-b&gt;:</div><div class="line">source-file ~/.tmux.conf</div></pre></td></tr></table></figure></p>
+<h2 id="tmux-copy-mode-usage-using-vi-key-style"><a href="#tmux-copy-mode-usage-using-vi-key-style" class="headerlink" title="tmux copy mode usage using vi key style"></a>tmux copy mode usage using vi key style</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">#Start copy mode</div><div class="line">&lt;c-b&gt; [</div><div class="line">#To exit the copy mode, just press &lt;Esc&gt; or q while in the copy mode</div><div class="line">q</div><div class="line">#Press j,k,h,l to navigate cursor</div><div class="line">jkkkjh</div><div class="line">#press v to start high light selection</div><div class="line">v</div><div class="line">#press y to copy content to buffer and cancel selection</div><div class="line">y</div><div class="line">#switch to another pane by press Ctrl-b and then h or l to navigate to another key</div><div class="line">&lt;c-b&gt; h</div><div class="line">#press Ctrl-b and then ] to paste the buffer to the target pane</div><div class="line">&lt;c-b&gt; ]</div></pre></td></tr></table></figure>
+<h2 id="tmux-pane-zoom-key"><a href="#tmux-pane-zoom-key" class="headerlink" title="tmux pane zoom key"></a>tmux pane zoom key</h2><p>Press first time to zoom and press again to restore<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;c-b&gt; z</div></pre></td></tr></table></figure></p>
+<h2 id="Rename-window-key"><a href="#Rename-window-key" class="headerlink" title="Rename window key"></a>Rename window key</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;c-b&gt; ,</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/07/10/tmux-vi-key-binding/" data-id="cj58amgmq000btcje2jzcnkly" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/07/17/install-http-monitor-tools-for-owncloud/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          install http monitor tools for owncloud
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/07/09/Openldap-practice-1/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Openldap practice 1</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Computer/">Computer</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Computer/Trend/">Trend</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Computer/old-fashioned/">old fashioned</a></li></ul></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Learning/">Learning</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/">Markdown</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Learning/" style="font-size: 10px;">Learning</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/07/">July 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/07/17/install-http-monitor-tools-for-owncloud/">install http monitor tools for owncloud</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/10/tmux-vi-key-binding/">tmux vi key binding</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/09/Openldap-practice-1/">Openldap practice 1</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/02/Learning/">Learning</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/02/My-Fourth-Post/">My Fourth Post</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

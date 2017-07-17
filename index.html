@@ -61,6 +61,88 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-install-http-monitor-tools-for-owncloud" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/17/install-http-monitor-tools-for-owncloud/" class="article-date">
+  <time datetime="2017-07-17T15:06:23.000Z" itemprop="datePublished">2017-07-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/17/install-http-monitor-tools-for-owncloud/">install http monitor tools for owncloud</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="justniffer"><a href="#justniffer" class="headerlink" title="justniffer"></a>justniffer</h1><p><a href="http://justniffer.sourceforge.net/#!/home" target="_blank" rel="external">Justniffer</a></p>
+<h1 id="httpry"><a href="#httpry" class="headerlink" title="httpry"></a>httpry</h1><p><a href="http://dumpsterventures.com/jason/httpry/" target="_blank" rel="external">httpry</a></p>
+<h1 id="tcpflow"><a href="#tcpflow" class="headerlink" title="tcpflow"></a>tcpflow</h1><p><a href="https://github.com/simsong/tcpflow" target="_blank" rel="external">tcpflow</a></p>
+<h1 id="reference"><a href="#reference" class="headerlink" title="reference"></a>reference</h1><p><a href="https://unix.stackexchange.com/questions/19485/how-to-monitor-incoming-http-requests" target="_blank" rel="external">ref1</a></p>
+<p><a href="https://unix.stackexchange.com/questions/6279/on-the-fly-monitoring-http-requests-on-a-network-interface" target="_blank" rel="external">ref2</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/07/17/install-http-monitor-tools-for-owncloud/" data-id="cj58amgmn000atcje9k4cbtz5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-tmux-vi-key-binding" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/07/10/tmux-vi-key-binding/" class="article-date">
+  <time datetime="2017-07-10T02:48:13.000Z" itemprop="datePublished">2017-07-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/07/10/tmux-vi-key-binding/">tmux vi key binding</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="Add-vi-key-binding-to-tmux-conf"><a href="#Add-vi-key-binding-to-tmux-conf" class="headerlink" title="Add vi key binding to .tmux.conf"></a>Add vi key binding to .tmux.conf</h2><p>File: ~/.tmux.conf<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">unbind C-b</div><div class="line">set -g prefix C-j</div><div class="line">set-window-option -g mode-keys vi</div><div class="line">bind h select-pane -L</div><div class="line">bind j select-pane -D</div><div class="line">bind k select-pane -U</div><div class="line">bind l select-pane -R</div><div class="line">bind-key -t vi-copy &apos;v&apos; begin-selection</div><div class="line">bind-key -t vi-copy &apos;y&apos; copy-selection</div><div class="line">set-window-option -g automatic-rename off</div><div class="line">set-option -g allow-rename off</div></pre></td></tr></table></figure></p>
+<p>reload the conf file while in tmux:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;c-b&gt;:</div><div class="line">source-file ~/.tmux.conf</div></pre></td></tr></table></figure></p>
+<h2 id="tmux-copy-mode-usage-using-vi-key-style"><a href="#tmux-copy-mode-usage-using-vi-key-style" class="headerlink" title="tmux copy mode usage using vi key style"></a>tmux copy mode usage using vi key style</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">#Start copy mode</div><div class="line">&lt;c-b&gt; [</div><div class="line">#To exit the copy mode, just press &lt;Esc&gt; or q while in the copy mode</div><div class="line">q</div><div class="line">#Press j,k,h,l to navigate cursor</div><div class="line">jkkkjh</div><div class="line">#press v to start high light selection</div><div class="line">v</div><div class="line">#press y to copy content to buffer and cancel selection</div><div class="line">y</div><div class="line">#switch to another pane by press Ctrl-b and then h or l to navigate to another key</div><div class="line">&lt;c-b&gt; h</div><div class="line">#press Ctrl-b and then ] to paste the buffer to the target pane</div><div class="line">&lt;c-b&gt; ]</div></pre></td></tr></table></figure>
+<h2 id="tmux-pane-zoom-key"><a href="#tmux-pane-zoom-key" class="headerlink" title="tmux pane zoom key"></a>tmux pane zoom key</h2><p>Press first time to zoom and press again to restore<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;c-b&gt; z</div></pre></td></tr></table></figure></p>
+<h2 id="Rename-window-key"><a href="#Rename-window-key" class="headerlink" title="Rename window key"></a>Rename window key</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;c-b&gt; ,</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/07/10/tmux-vi-key-binding/" data-id="cj58amgmq000btcje2jzcnkly" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Openldap-practice-1" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2017/07/09/Openldap-practice-1/" class="article-date">
@@ -85,7 +167,7 @@
       
         <h1 id="Openldap-slapd-install"><a href="#Openldap-slapd-install" class="headerlink" title="Openldap slapd install"></a>Openldap slapd install</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum install -y openldap openldap-servers openldap-clients</div><div class="line">service slapd start # centos 6</div></pre></td></tr></table></figure>
 <h1 id="Create-ssha-password"><a href="#Create-ssha-password" class="headerlink" title="Create ssha password"></a>Create ssha password</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">slappasswd</div></pre></td></tr></table></figure>
-<h1 id="Modify-rootdn"><a href="#Modify-rootdn" class="headerlink" title="Modify rootdn"></a>Modify rootdn</h1><p>create-rootdn.ldif<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">changeType: modify</div><div class="line">replace: olcSuffix</div><div class="line">olcSuffix: dc=olimpus,dc=com</div><div class="line">-</div><div class="line">replace: olcRootDN</div><div class="line">olcRootDN: cn=admin,dc=olimpus,dc=com</div></pre></td></tr></table></figure></p>
+<h1 id="Modify-rootdn"><a href="#Modify-rootdn" class="headerlink" title="Modify rootdn"></a>Modify rootdn</h1><p>create-rootdn.ldif<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">dn: olcDatabase=&#123;2&#125;bdb,cn=config</div><div class="line">changeType: modify</div><div class="line">replace: olcSuffix</div><div class="line">olcSuffix: dc=olimpus,dc=com</div><div class="line">-</div><div class="line">replace: olcRootDN</div><div class="line">olcRootDN: cn=admin,dc=olimpus,dc=com</div></pre></td></tr></table></figure></p>
 <p>command:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ldapmodify -Y EXTERNAL -H ldapi:/// -f create-rootdn.ldif</div></pre></td></tr></table></figure></p>
 <h1 id="Modify-rootdn-password"><a href="#Modify-rootdn-password" class="headerlink" title="Modify rootdn password"></a>Modify rootdn password</h1><p>change-rootdn-password.ldif<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">dn: olcDatabase=&#123;2&#125;bdb,cn=config</div><div class="line">changeType: modify</div><div class="line">replace: olcRootPW</div><div class="line">olcRootPW: &#123;SSHA&#125;tHlbnWzxSSXwa06wgez05ODqtmVfQZYH</div></pre></td></tr></table></figure></p>
 <p>command:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ldapmodify -Y EXTERNAL -H ldapi:/// -f change-rootdn-password.ldif</div></pre></td></tr></table></figure></p>
@@ -105,7 +187,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/09/Openldap-practice-1/" data-id="cj4wky2fr000du7jee0u1aqnw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/09/Openldap-practice-1/" data-id="cj58amgmc0006tcje9kyfz2fq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -142,7 +224,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/02/Learning/" data-id="cj4wky2eh0000u7jegj4gev7e" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/02/Learning/" data-id="cj58amglo0000tcjeici90nn9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -230,7 +312,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/02/My-Fourth-Post/" data-id="cj4wky2eq0001u7jev4uleta8" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/02/My-Fourth-Post/" data-id="cj58amglx0001tcjewjbuecwi" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Learning/">Learning</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/">Markdown</a></li></ul>
@@ -272,7 +354,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/02/My-Third-Post/" data-id="cj4wky2fp000cu7jeabi7i1tz" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/02/My-Third-Post/" data-id="cj58amgma0005tcjetsf3giwe" class="article-share-link">Share</a>
       
       
     </footer>
@@ -308,7 +390,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/02/My-Second-Post/" data-id="cj4wky2fo000bu7jeelrzmmad" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/02/My-Second-Post/" data-id="cj58amgmt000dtcjezr4jqh03" class="article-share-link">Share</a>
       
       
     </footer>
@@ -345,7 +427,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/02/My-New-Post/" data-id="cj4wky2et0002u7jeag4ijkr4" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/02/My-New-Post/" data-id="cj58amgm10002tcje89ss2x2o" class="article-share-link">Share</a>
       
       
     </footer>
@@ -390,7 +472,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/02/hello-world/" data-id="cj4wky2fw000eu7je6a7x4t6c" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/02/hello-world/" data-id="cj58amgme0007tcjexchmghea" class="article-share-link">Share</a>
       
       
     </footer>
@@ -451,6 +533,14 @@
       <ul>
         
           <li>
+            <a href="/2017/07/17/install-http-monitor-tools-for-owncloud/">install http monitor tools for owncloud</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/10/tmux-vi-key-binding/">tmux vi key binding</a>
+          </li>
+        
+          <li>
             <a href="/2017/07/09/Openldap-practice-1/">Openldap practice 1</a>
           </li>
         
@@ -460,14 +550,6 @@
         
           <li>
             <a href="/2017/07/02/My-Fourth-Post/">My Fourth Post</a>
-          </li>
-        
-          <li>
-            <a href="/2017/07/02/My-Third-Post/">My Third Post</a>
-          </li>
-        
-          <li>
-            <a href="/2017/07/02/My-Second-Post/">My Second Post</a>
           </li>
         
       </ul>

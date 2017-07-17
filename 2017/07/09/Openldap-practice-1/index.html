@@ -5,16 +5,16 @@
   
   <title>Openldap practice 1 | IT Learning</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Openldap slapd install12yum install -y openldap openldap-servers openldap-clientsservice slapd start # centos 6 Create ssha password1slappasswd Modify rootdncreate-rootdn.ldif123456changeType: modifyr">
+  <meta name="description" content="Openldap slapd install12yum install -y openldap openldap-servers openldap-clientsservice slapd start # centos 6 Create ssha password1slappasswd Modify rootdncreate-rootdn.ldif1234567dn: olcDatabase=&amp;#">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Openldap practice 1">
 <meta property="og:url" content="http://yoursite.com/2017/07/09/Openldap-practice-1/index.html">
 <meta property="og:site_name" content="IT Learning">
-<meta property="og:description" content="Openldap slapd install12yum install -y openldap openldap-servers openldap-clientsservice slapd start # centos 6 Create ssha password1slappasswd Modify rootdncreate-rootdn.ldif123456changeType: modifyr">
-<meta property="og:updated_time" content="2017-07-09T10:31:54.173Z">
+<meta property="og:description" content="Openldap slapd install12yum install -y openldap openldap-servers openldap-clientsservice slapd start # centos 6 Create ssha password1slappasswd Modify rootdncreate-rootdn.ldif1234567dn: olcDatabase=&amp;#">
+<meta property="og:updated_time" content="2017-07-17T15:16:27.697Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Openldap practice 1">
-<meta name="twitter:description" content="Openldap slapd install12yum install -y openldap openldap-servers openldap-clientsservice slapd start # centos 6 Create ssha password1slappasswd Modify rootdncreate-rootdn.ldif123456changeType: modifyr">
+<meta name="twitter:description" content="Openldap slapd install12yum install -y openldap openldap-servers openldap-clientsservice slapd start # centos 6 Create ssha password1slappasswd Modify rootdncreate-rootdn.ldif1234567dn: olcDatabase=&amp;#">
   
     <link rel="alternate" href="/atom.xml" title="IT Learning" type="application/atom+xml">
   
@@ -87,7 +87,7 @@
       
         <h1 id="Openldap-slapd-install"><a href="#Openldap-slapd-install" class="headerlink" title="Openldap slapd install"></a>Openldap slapd install</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum install -y openldap openldap-servers openldap-clients</div><div class="line">service slapd start # centos 6</div></pre></td></tr></table></figure>
 <h1 id="Create-ssha-password"><a href="#Create-ssha-password" class="headerlink" title="Create ssha password"></a>Create ssha password</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">slappasswd</div></pre></td></tr></table></figure>
-<h1 id="Modify-rootdn"><a href="#Modify-rootdn" class="headerlink" title="Modify rootdn"></a>Modify rootdn</h1><p>create-rootdn.ldif<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">changeType: modify</div><div class="line">replace: olcSuffix</div><div class="line">olcSuffix: dc=olimpus,dc=com</div><div class="line">-</div><div class="line">replace: olcRootDN</div><div class="line">olcRootDN: cn=admin,dc=olimpus,dc=com</div></pre></td></tr></table></figure></p>
+<h1 id="Modify-rootdn"><a href="#Modify-rootdn" class="headerlink" title="Modify rootdn"></a>Modify rootdn</h1><p>create-rootdn.ldif<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">dn: olcDatabase=&#123;2&#125;bdb,cn=config</div><div class="line">changeType: modify</div><div class="line">replace: olcSuffix</div><div class="line">olcSuffix: dc=olimpus,dc=com</div><div class="line">-</div><div class="line">replace: olcRootDN</div><div class="line">olcRootDN: cn=admin,dc=olimpus,dc=com</div></pre></td></tr></table></figure></p>
 <p>command:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ldapmodify -Y EXTERNAL -H ldapi:/// -f create-rootdn.ldif</div></pre></td></tr></table></figure></p>
 <h1 id="Modify-rootdn-password"><a href="#Modify-rootdn-password" class="headerlink" title="Modify rootdn password"></a>Modify rootdn password</h1><p>change-rootdn-password.ldif<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">dn: olcDatabase=&#123;2&#125;bdb,cn=config</div><div class="line">changeType: modify</div><div class="line">replace: olcRootPW</div><div class="line">olcRootPW: &#123;SSHA&#125;tHlbnWzxSSXwa06wgez05ODqtmVfQZYH</div></pre></td></tr></table></figure></p>
 <p>command:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ldapmodify -Y EXTERNAL -H ldapi:/// -f change-rootdn-password.ldif</div></pre></td></tr></table></figure></p>
@@ -107,7 +107,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/07/09/Openldap-practice-1/" data-id="cj4wky2fr000du7jee0u1aqnw" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2017/07/09/Openldap-practice-1/" data-id="cj58amgmc0006tcje9kyfz2fq" class="article-share-link">Share</a>
       
       
     </footer>
@@ -115,6 +115,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2017/07/10/tmux-vi-key-binding/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          tmux vi key binding
+        
+      </div>
+    </a>
   
   
     <a href="/2017/07/02/Learning/" id="article-nav-older" class="article-nav-link-wrap">
@@ -177,6 +186,14 @@
       <ul>
         
           <li>
+            <a href="/2017/07/17/install-http-monitor-tools-for-owncloud/">install http monitor tools for owncloud</a>
+          </li>
+        
+          <li>
+            <a href="/2017/07/10/tmux-vi-key-binding/">tmux vi key binding</a>
+          </li>
+        
+          <li>
             <a href="/2017/07/09/Openldap-practice-1/">Openldap practice 1</a>
           </li>
         
@@ -186,14 +203,6 @@
         
           <li>
             <a href="/2017/07/02/My-Fourth-Post/">My Fourth Post</a>
-          </li>
-        
-          <li>
-            <a href="/2017/07/02/My-Third-Post/">My Third Post</a>
-          </li>
-        
-          <li>
-            <a href="/2017/07/02/My-Second-Post/">My Second Post</a>
           </li>
         
       </ul>
